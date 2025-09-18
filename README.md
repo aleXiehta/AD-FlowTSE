@@ -1,2 +1,2 @@
-# AdaFlowTSE
-Adaptive Flow-Matching for Target Speaker Extraction
+# AD-FlowTSE
+Adaptive Deterministic Flow-Matching for Target Speaker Extraction
