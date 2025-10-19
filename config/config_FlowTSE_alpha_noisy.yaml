@@ -1,0 +1,85 @@
+train:
+  batch_size: 64 #63->514 log interval
+  num_epochs: 2000
+  accumulation_steps: 1
+  num_workers: 4
+  log_lr: true
+  precision: "16"
+  log_dir: exp/ECAPA-TDNN-TPredictor_specAug_mlp_noisy
+  log_interval: 506 # 1 epoch = 674 steps
+  detect_anomaly: false
+  gradient_clip_val: 0.5
+  limit_train_batches: null
+  limit_val_batches: null
+  overfit_batches: 0.0
+  spectral_aug: true
+
+scheduler:
+  type: 'CosineAnnealingLR' #'ReduceLROnPlateau'
+  t_max: 50
+  eta_min: 0.00001
+  warmup_epochs: 5
+  lr_reduce_patience: 20
+  lr_reduce_factor: 0.5
+  start_epoch: 0
+
+loss:
+  gamma: 0.5
+
+# filterbank config
+model:
+  C: 1024
+
+dataset:
+  enable_train_360: true
+  enable_train_100: true
+  train_360_dir: '/path/to/speakerbeam/egs/libri2mix/data/wav16k/min/train-360'
+  train_100_dir: '/path/to/speakerbeam/egs/libri2mix/data/wav16k/min/train-100'
+  val_dir: '/path/to/speakerbeam/egs/libri2mix/data/wav16k/min/dev'
+  test_dir: '/path/to/speakerbeam/egs/libri2mix/data/wav16k/min/test'
+  librimix_meta_dir: '/path/to/LibriMix/metadata'
+  task: 'sep_noisy'
+  n_src: 2
+  sample_rate: 16000
+  segment: 3
+  segment_aux: 3
+  n_fft: 510
+  win_length: 510
+  hop_length: 128
+  snr_range: [-15, 15]
+
+# Optim config
+optim:
+  optimizer: AdamW
+  lr: 0.0001 # will not be applied if load_weights_only is false
+  weight_decay: 0.01
+
+ddp:
+  use_ddp: true
+  num_nodes: 1
+  num_gpus: 4
+  strategy: 'ddp'
+
+seed: 42
+
+early_stopping:
+  enabled: false
+  monitor: 'val_loss'
+  patience: 50
+  verbose: true
+  mode: 'min'
+  delta: 0.0
+
+checkpoint:
+  dir: 'exp/ECAPA-TDNN-TPredictor_specAug_mlp_noisy/checkpoints'
+  ckpt_name: 'best'
+  save_best: true
+  save_last: true
+  verbose: true
+  monitor: 'val_loss'
+  mode: min
+  load_weights_only: false # if true, only load weights and discard checkpointed learning rate
+  resume: 'exp/ECAPA-TDNN-TPredictor_specAug_mlp_noisy/checkpoints/last.ckpt'
+
+eval:
+  checkpoint: 'exp/ECAPA-TDNN-TPredictor_specAug_mlp_noisy/checkpoints/best.ckpt'
