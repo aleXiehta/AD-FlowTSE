@@ -1,15 +1,16 @@
-# 🌀 AD-FlowTSE: Adaptive Discriminative Flow-Matching Target Speaker Extraction
+# AD-FlowTSE: Adaptive Discriminative Flow-Matching Target Speaker Extraction
 
 **ICASSP 2026 Submission**
 
 [![Python](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?logo=pytorch\&logoColor=white)](https://pytorch.org/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-[![Paper](https://img.shields.io/badge/arXiv-Coming_Soon-b31b1b.svg)](https://arxiv.org/)
+[![arXiv](https://img.shields.io/badge/arXiv-2510.16995-b31b1b.svg)](https://arxiv.org/abs/2510.16995)
+[![Demo](https://img.shields.io/badge/Demo-Online-4caf50.svg)](https://alexiehta.github.io/demo/ad_flowtse/ad_flowtse_demo.html)
 <!-- [![Conference](https://img.shields.io/badge/ICASSP-2026-orange.svg)] -->
 
 
-## 🧠 Introduction
+## Overview
 
 Generative target-speaker extraction (TSE) methods often produce more natural outputs than predictive models.
 Recent diffusion- or flow-matching-based approaches typically rely on a **fixed number of reverse steps** with **uniform step size**.
@@ -20,32 +21,30 @@ Unlike prior FM-based speech enhancement and TSE methods that transport between 
 
 This design enables **MR-aware initialization**, where the model starts at an adaptive point along the background–source trajectory rather than using a fixed reverse schedule across all noise levels.
 
-💡 *Experiments show that AD-FlowTSE achieves strong performance even with a single reverse step, and auxiliary MR estimation further enhances accuracy.*
-Experimental results highlight that aligning the transport path with mixture composition and adapting step size to noise conditions yields **efficient and accurate TSE**.
+💡 Experiments show that AD-FlowTSE delivers efficient and accurate TSE by achieving strong performance even with a single reverse step, further enhanced by auxiliary MR estimation, path alignment with mixture composition, and noise-adaptive step sizes.
 
 
-## 🧩 Dataset Preparation
+## Dataset Preparation
 
 Follow the official data-preparation pipeline from [**SpeakerBeam**](https://github.com/BUTSpeechFIT/speakerbeam).
 After preparation, ensure your dataset follows the same directory structure (mixture, clean, and reference files).
 
 
-## 🏋️ Pre-trained Checkpoints
+## Pre-trained Checkpoints
 
-Pre-trained **AD-FlowTSE** models and **mixing-ratio predictors** are available in the `exp/` folder.
-You can fine-tune or directly evaluate them using your dataset.
+Pre-trained **AD-FlowTSE** models and **mixing-ratio predictors** are available [here](https://uillinoisedu-my.sharepoint.com/:f:/r/personal/tsunanh2_illinois_edu/Documents/AD-FlowTSE?csf=1&web=1&e=HZKhgj).
 
 
-## ⚙️ Training Instructions
+## Training Instructions
 
-### 🔹 1️⃣ Train the Mixing-Ratio Predictor
+### Train the Mixing-Ratio Predictor
 
 ```bash
 python train_t_predicter.py \
   --config config/<config_FlowTSE_alpha.yaml | config_FlowTSE_alpha_noisy.yaml>
 ```
 
-### 🔹 2️⃣ Train AD-FlowTSE
+### Train AD-FlowTSE
 
 ```bash
 python train.py \
@@ -54,7 +53,7 @@ python train.py \
 
 ---
 
-## 🧪 Evaluation
+## Evaluation
 
 Run evaluation with different MR-predictor variants:
 
@@ -64,21 +63,21 @@ python eval.py \
   --t_predicter <ECAPAMLP | GT | ZERO | ONE | RAND>
 ```
 
-## 🧰 Credits
+## Credits
 
 Our **UDiT** backbone is ported and modified from
 [**SoloAudio**](https://github.com/WangHelin1997/SoloAudio/tree/main/model).
 We thank the authors for releasing their high-quality implementation.
 
 
-## 📖 Citation
+## Citation
 
 If you find this work helpful, please cite:
 
 ```bibtex
 @inproceedings{hsieh2026adflowtse,
   title     = {Adaptive Discriminative Flow Matching for Target Speaker Extraction},
-  author    = {Tsun-An Hsieh and Paris Smaragdis and Minje Kim},
+  author    = {Tsun-An Hsieh and Minje Kim},
   booktitle = {submitted to Proc. IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)},
   year      = {2026},
 }
