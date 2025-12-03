@@ -32,7 +32,7 @@ After preparation, ensure your dataset follows the same directory structure (mix
 
 ## Pre-trained Checkpoints
 
-Pre-trained **AD-FlowTSE** models and **mixing-ratio predictors** are available [here](https://uillinoisedu-my.sharepoint.com/:f:/r/personal/tsunanh2_illinois_edu/Documents/AD-FlowTSE?csf=1&web=1&e=HZKhgj).
+Pre-trained **AD-FlowTSE** models and **mixing-ratio predictors** are available [here](https://uillinoisedu-my.sharepoint.com/:f:/g/personal/tsunanh2_illinois_edu/EjDJvo9WqnVHv0xNjXG44XIBxGDVxif-NqC0HTCi2ZeUKA?e=eHe1Fj).
 
 
 ## Training Instructions
