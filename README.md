@@ -76,7 +76,7 @@ If you find this work helpful, please cite:
 
 ```bibtex
 @inproceedings{hsieh2026adflowtse,
-  title     = {Adaptive Discriminative Flow Matching for Target Speaker Extraction},
+  title     = {Adaptive Deterministic Flow Matching for Target Speaker Extraction},
   author    = {Tsun-An Hsieh and Minje Kim},
   booktitle = {Proc. IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)},
   year      = {2026},
