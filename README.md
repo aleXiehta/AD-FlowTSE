@@ -32,7 +32,7 @@ After preparation, ensure your dataset follows the same directory structure (mix
 
 ## Pre-trained Checkpoints
 
-Pre-trained **AD-FlowTSE** models and **mixing-ratio predictors** are available [here](https://uillinoisedu-my.sharepoint.com/:f:/g/personal/tsunanh2_illinois_edu/EjDJvo9WqnVHv0xNjXG44XIBxGDVxif-NqC0HTCi2ZeUKA?e=eHe1Fj).
+Pre-trained **AD-FlowTSE** models and **mixing-ratio predictors** are available [here](https://uillinoisedu-my.sharepoint.com/:f:/g/personal/tsunanh2_illinois_edu/IgAwyb6PVqp1R79MTY1xuOFyAcRg1cYn_jagtB0wotmXlCg?e=Haqhj7).
 
 
 ## Training Instructions
@@ -78,7 +78,7 @@ If you find this work helpful, please cite:
 @inproceedings{hsieh2026adflowtse,
   title     = {Adaptive Discriminative Flow Matching for Target Speaker Extraction},
   author    = {Tsun-An Hsieh and Minje Kim},
-  booktitle = {submitted to Proc. IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)},
+  booktitle = {Proc. IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)},
   year      = {2026},
 }
 ```
